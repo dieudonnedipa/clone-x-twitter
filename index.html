@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X - Ça se passe maintenant</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="left-section">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true">
+            <g>
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+            </g>
+        </svg>
+    </div>
+
+    <div class="right-section">
+        <h1 class="main-title">Ça se passe maintenant</h1>
+        <h2 class="subtitle">Inscrivez-vous.</h2>
+
+        <div class="auth-section">
+            <button class="auth-button google-btn">
+                S'inscrire avec Google
+            </button>
+
+            <button class="auth-button apple-btn">
+                S'inscrire avec Apple
+            </button>
+
+            <div class="divider">
+                <span>ou</span>
+            </div>
+
+            <button class="auth-button create-account-btn" id="createAccountBtn">
+                Créer un compte
+            </button>
+
+            <p class="terms-text">
+                En vous inscrivant, vous acceptez les <a href="#">Conditions d'utilisation</a> et la <a href="#">Politique de confidentialité</a>, notamment <a href="#">l'Utilisation des cookies</a>.
+            </p>
+        </div>
+
+        <div class="login-section">
+            <p class="login-text">Vous avez déjà un compte ?</p>
+            <button class="auth-button login-btn" id="loginBtn">
+                Se connecter
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="signupModal">
+    <div class="modal">
+        <div class="modal-header">
+            <svg class="modal-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <g>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </g>
+            </svg>
+            <button class="close-btn" id="closeSignupModal">×</button>
+        </div>
+
+        <h2 class="modal-title">Créer votre compte</h2>
+
+        <form class="login-form" id="signupForm">
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder=" " id="fullNameInput" required>
+                <label class="form-label" for="fullNameInput">Nom et prénom</label>
+            </div>
+
+            <div class="form-group">
+                <input type="email" class="form-input" placeholder=" " id="emailSignupInput" required>
+                <label class="form-label" for="emailSignupInput">E-mail</label>
+            </div>
+
+            <div class="form-group">
+                <label style="color: #e7e9ea; font-size: 15px; font-weight: 700; margin-bottom: 0.5rem; display: block;">Date de naissance</label>
+                <p style="color: #71767b; font-size: 14px; margin-bottom: 1rem;">Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.</p>
+                
+                <div class="birthday-container">
+                    <div class="form-group">
+                        <select class="form-input" id="birthdayMonth" required>
+                            <option value="">Mois</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-input" id="birthdayDay" required>
+                            <option value="">Jour</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-input" id="birthdayYear" required>
+                            <option value="">Année</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="login-submit-btn" id="signupNextBtn" disabled>
+                Suivant
+            </button>
+        </form>
+
+        <div class="modal-footer">
+            <p>Vous avez déjà un compte ?</p>
+            <a href="#" class="signup-link" id="switchToLogin">Connectez-vous</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="passwordModal">
+    <div class="modal">
+        <div class="modal-header">
+            <button class="back-btn" id="backToSignup">←</button>
+            <svg class="modal-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <g>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </g>
+            </svg>
+            <button class="close-btn" id="closePasswordModal">×</button>
+        </div>
+
+        <h2 class="modal-title">Vous y êtes presque</h2>
+        <p style="color: #71767b; margin-bottom: 2rem;">Assurez-vous de pouvoir utiliser ces informations pour vous connecter.</p>
+
+        <div class="user-info-summary" id="userInfoSummary">
+            
+        </div>
+
+        <form class="login-form" id="passwordForm">
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder=" " id="newPasswordInput" required>
+                <label class="form-label" for="newPasswordInput">Mot de passe</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder=" " id="confirmPasswordInput" required>
+                <label class="form-label" for="confirmPasswordInput">Confirmer le mot de passe</label>
+            </div>
+
+            <div class="password-requirements" id="passwordRequirements">
+                <p style="color: #71767b; font-size: 13px; margin-bottom: 1rem;">Votre mot de passe doit contenir :</p>
+                <ul style="color: #71767b; font-size: 13px; margin-left: 1.5rem;">
+                    <li id="req-length">Au moins 8 caractères</li>
+                    <li id="req-uppercase">Au moins une majuscule</li>
+                    <li id="req-lowercase">Au moins une minuscule</li>
+                    <li id="req-number">Au moins un chiffre</li>
+                </ul>
+            </div>
+
+            <button type="submit" class="login-submit-btn" id="createAccountFinalBtn" disabled>
+                Créer le compte
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="modal-overlay" id="loginModal">
+    <div class="modal">
+        <div class="modal-header">
+            <svg class="modal-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <g>
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </g>
+            </svg>
+            <button class="close-btn" id="closeModal">×</button>
+        </div>
+
+        <h2 class="modal-title">Connectez-vous à X</h2>
+
+        <form class="login-form" id="loginForm">
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder=" " id="emailInput" required>
+                <label class="form-label" for="emailInput">E-mail ou nom d'utilisateur</label>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder=" " id="passwordInput" required>
+                <label class="form-label" for="passwordInput">Mot de passe</label>
+            </div>
+
+            <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+
+            <button type="submit" class="login-submit-btn" id="loginSubmitBtn" disabled>
+                Se connecter
+            </button>
+        </form>
+
+        <div class="modal-footer">
+            <p>Vous n'avez pas de compte ?</p>
+            <a href="#" class="signup-link" id="switchToSignup">Inscrivez-vous</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="footer-links">
+        <a href="#">À propos</a>
+        <a href="#">Télécharger l'application X</a>
+        <a href="#">Aide</a>
+        <a href="#">Centre d'assistance</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Politique de Confidentialité</a>
+        <a href="#">Politique relative aux cookies</a>
+        <a href="#">Accessibilité</a>
+        <a href="#">Informations sur les publicités</a>
+        <a href="#">Blog</a>
+        <a href="#">Carrières</a>
+        <a href="#">Ressources de la marque</a>
+        <a href="#">Publicité</a>
+        <a href="#">Marketing</a>
+        <a href="#">X pour les professionnels</a>
+        <a href="#">Développeurs</a>
+        <a href="#">Répertoire</a>
+        <a href="#">Paramètres</a>
+    </div>
+    <div class="copyright">
+        © 2025 X Corp.
+    </div>
+</footer>
+
+<script src="js/auth.js">
+
+</script>
+</body>
+</html>
