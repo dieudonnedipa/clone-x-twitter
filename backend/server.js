@@ -37,11 +37,37 @@ const saveDatabase = () => {
 };
 
 
-// --- Routes de l'API ---
-
 app.get('/api/users', (req, res) => {
-  res.json(database.users);
+  const { email, username } = req.query;
+  let users = [...database.users];
+
+  if (email) {
+    users = users.filter(u => u.email.toLowerCase() === email.toLowerCase());
+  } else if (username) {
+    users = users.filter(u => u.username.toLowerCase() === username.toLowerCase());
+  }
+  res.json(users);
 });
+
+app.post('/api/users', (req, res) => {
+  const newUser = req.body;
+  
+  const emailExists = database.users.some(
+    user => user.email.toLowerCase() === newUser.email.toLowerCase()
+  );
+
+  if (emailExists) {
+    console.log(`Tentative de création de compte avec un email existant : ${newUser.email}`);
+    return res.status(409).json({ error: "Cet email est déjà utilisé." });
+  }
+
+  console.log("Création d'un nouvel utilisateur :", newUser.name);
+  database.users.push(newUser);
+  saveDatabase();
+  
+  res.status(201).json(newUser);
+});
+
 
 app.get('/api/users/:id', (req, res) => {
   const userId = req.params.id;
@@ -52,25 +78,15 @@ app.get('/api/users/:id', (req, res) => {
 });
 
 
-// --- LA ROUTE MODIFIÉE EST ICI ---
 app.get('/api/tweets', (req, res) => {
-  // On récupère le paramètre 'userId' de l'URL (ex: /api/tweets?userId=12)
   const { userId } = req.query;
-
-  let allTweets = [...database.tweets]; // On prend tous les tweets par défaut
-
-  // S'il y a un userId dans la requête, on filtre les tweets
+  let allTweets = [...database.tweets];
   if (userId) {
-    console.log(`Filtre activé : ne renvoyer que les tweets de l'utilisateur ${userId}`);
     allTweets = allTweets.filter(tweet => tweet.userId == userId);
   }
-
-  // On trie le résultat (soit tous les tweets, soit les tweets filtrés)
   const sortedTweets = allTweets.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
   res.json(sortedTweets);
 });
-
 
 app.get('/api/tweets/:id', (req, res) => {
   const tweetId = req.params.id;
@@ -113,7 +129,6 @@ app.delete('/api/tweets/:id', (req, res) => {
     res.status(404).json({ error: "Tweet non trouvé." });
   }
 });
-
 
 // --- Démarrage du serveur ---
 app.listen(PORT, () => {

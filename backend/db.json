@@ -195,15 +195,48 @@
       "createdAt": "2020-04-15T13:00:00Z",
       "followers": 980000,
       "following": 200
+    },
+    {
+      "name": "Elon Musk",
+      "email": "elonmusk@example.com",
+      "birthday": "1990-9-2",
+      "id": "1756451084890",
+      "username": "elonmusk",
+      "password": "Password123",
+      "createdAt": "2025-08-29T07:04:44.890Z",
+      "profilePicture": "https://i.pravatar.cc/150?u=1756451084890",
+      "bio": "Free speech for everyone, everywhere",
+      "location": "New York, USA",
+      "website": "elonmusk.com",
+      "followers": 200000000,
+      "following": 791
     }
   ],
   "tweets": [
+    {
+      "id": "1756451184411",
+      "userId": "1756451084890",
+      "content": "X is mine now lol.",
+      "media": [],
+      "likedBy": [
+        "1756451084890"
+      ],
+      "retweets": 0,
+      "replies": [],
+      "createdAt": "2025-08-29T07:06:24.411Z",
+      "replyTo": null,
+      "views": 50000000
+    },
     {
       "id": "101",
       "userId": "12",
       "content": "Gran partido esta noche! Contento por la victoria del equipo. Gracias a todos por el apoyo! 🙏",
       "media": [],
-      "likedBy": ["9", "13", "14"],
+      "likedBy": [
+        "9",
+        "13",
+        "14"
+      ],
       "createdAt": "2025-08-25T22:00:00Z",
       "views": 12500000
     },
@@ -212,7 +245,10 @@
       "userId": "2",
       "content": "Je viens de passer 3 heures à déboguer un problème de CSS pour réaliser que j'avais juste oublié un point-virgule. La vie de développeur... 😅 #webdev #coding",
       "media": [],
-      "likedBy": ["10", "11"],
+      "likedBy": [
+        "10",
+        "11"
+      ],
       "createdAt": "2025-08-26T10:30:00Z",
       "views": 1500
     },
@@ -221,9 +257,15 @@
       "userId": "3",
       "content": "L'odeur de la térébenthine au petit matin, il n'y a rien de tel. Nouvelle toile en cours... 🎨",
       "media": [
-        { "type": "image", "url": "https://picsum.photos/seed/art103/600/400" }
+        {
+          "type": "image",
+          "url": "https://picsum.photos/seed/art103/600/400"
+        }
       ],
-      "likedBy": ["1", "8"],
+      "likedBy": [
+        "1",
+        "8"
+      ],
       "createdAt": "2025-08-26T08:15:00Z",
       "views": 8200
     },
@@ -232,7 +274,10 @@
       "userId": "13",
       "content": "Lock in! Game day tonight. Let's get it #DubNation",
       "media": [],
-      "likedBy": ["9", "12"],
+      "likedBy": [
+        "9",
+        "12"
+      ],
       "createdAt": "2025-08-26T16:00:00Z",
       "views": 8700000
     },
@@ -241,7 +286,9 @@
       "userId": "1",
       "content": "Finitions sur la nouvelle collection. Tellement hâte de vous montrer le résultat ! #Couture #Mode",
       "media": [],
-      "likedBy": ["3"],
+      "likedBy": [
+        "3"
+      ],
       "createdAt": "2025-08-26T14:20:00Z",
       "views": 2300
     },
@@ -259,7 +306,9 @@
       "userId": "14",
       "content": "There is a name that calms the troubled soul, His name is Jesus. Hope this encourages you today.",
       "media": [],
-      "likedBy": ["8"],
+      "likedBy": [
+        "8"
+      ],
       "createdAt": "2025-08-25T14:00:00Z",
       "views": 450000
     },
@@ -268,7 +317,10 @@
       "userId": "9",
       "content": "Grosse séance d'entraînement ce matin. La préparation pour le prochain match continue ! 💪⚽️",
       "media": [],
-      "likedBy": ["12", "13"],
+      "likedBy": [
+        "12",
+        "13"
+      ],
       "createdAt": "2025-08-26T09:00:00Z",
       "views": 75000
     },
@@ -277,7 +329,9 @@
       "userId": "7",
       "content": "Lecture du soir : \"L'Être et le Néant\" de Sartre. Chaque relecture offre de nouvelles perspectives. Et vous, que lisez-vous ?",
       "media": [],
-      "likedBy": ["8"],
+      "likedBy": [
+        "8"
+      ],
       "createdAt": "2025-08-25T20:45:00Z",
       "views": 980
     },
@@ -286,7 +340,9 @@
       "userId": "4",
       "content": "Exclusif : Notre dernier rapport sur la gestion des fonds publics sera publié demain à 8h. #Investigation",
       "media": [],
-      "likedBy": ["6"],
+      "likedBy": [
+        "6"
+      ],
       "createdAt": "2025-08-26T18:00:00Z",
       "views": 9200
     }
